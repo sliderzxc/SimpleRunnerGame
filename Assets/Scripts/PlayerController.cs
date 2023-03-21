@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
     private CharacterController controller;
     private Vector3 dir;
     [SerializeField] private int speed;
@@ -9,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravity;
 
     private int lineToMove = 1;
-    public float lineDistance = 4; 
+    public float lineDistance = 3; 
 
     void Start() {
         controller = GetComponent<CharacterController>();
@@ -40,7 +39,7 @@ public class PlayerController : MonoBehaviour
             targetPosition += Vector3.left * lineDistance;
         }
         else if (lineToMove == 2) {
-             targetPosition += Vector3.right * lineDistance;
+            targetPosition += Vector3.right * lineDistance;
         }
         transform.position = targetPosition;
     }
