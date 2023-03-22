@@ -41,7 +41,7 @@ public class SwipeController : MonoBehaviour {
                 swipeDelta = Input.touches[0].position - startTouch;
             }
             else if (Input.GetMouseButton(0)) {
-                swipeDelta = (Vector2)Input.mousePosition - startTouch;
+                swipeDelta = (Vector2) Input.mousePosition - startTouch;
             }
         }
 
