@@ -7,7 +7,8 @@ public class SwipeController : MonoBehaviour {
 
     private void Update() {
         tap = swipeDown = swipeUp = swipeLeft = swipeRight = false;
-        #region ПК-версия
+
+        #region ПК-версия (мышкой)
         if (Input.GetMouseButtonDown(0)) {
             tap = true;
             isDraging = true;

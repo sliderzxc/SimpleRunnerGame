@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour {
     private CharacterController controller;
@@ -8,29 +9,24 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float gravity;
 
     private int lineToMove = 1;
-    public float lineDistance = 3; 
+    public float lineDistance = 6; 
 
     void Start() {
         controller = GetComponent<CharacterController>();
     }
+    System.Random rand = new System.Random();
 
     private void Update() {
-        if (SwipeController.swipeRight) {
-            if (lineToMove < 2) {
-                lineToMove++;
-            }
+        if (SwipeController.swipeRight && lineToMove < 2 ) {
+            lineToMove++;
         }
 
-        if (SwipeController.swipeLeft) {
-            if (lineToMove > 0) {
-                lineToMove--;
-            }
+        if (SwipeController.swipeLeft && lineToMove > 0) {
+            lineToMove--;
         }
 
-        if (SwipeController.swipeUp){
-            if (controller.isGrounded) {
-                Jump();
-            }
+        if (SwipeController.swipeUp && controller.isGrounded){
+            Jump();
         }
 
         Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
